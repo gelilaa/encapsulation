@@ -7,6 +7,10 @@ const mergeArrays = (arr1, arr2) => {
 const obj = {
   array: [3],
   mergeArrays: function (arrToMerge) {
+     [...this.array, ...arrToMerge];
+   return Array.prototype.push.apply(this.array,arrToMerge);
+
+
     // merge the argument into the saved array
   }
 }

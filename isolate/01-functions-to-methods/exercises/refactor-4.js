@@ -6,7 +6,14 @@ const remix = (str, mixer) => {
 const obj = {
   mixer: '',
   remixed: '',
-  remix: function (str) { }
+  remix: function (str) { 
+this.remixed=str.split('').join(this.mixer);
+
+  },
+getRemixed:function () {
+    return this.remixed;
+    
+  }
 };
 
 obj.remix('hello');
