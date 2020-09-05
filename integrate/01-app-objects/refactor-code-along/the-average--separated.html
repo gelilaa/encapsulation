@@ -145,7 +145,7 @@
       // re-render the average
       const averageContainer = document.getElementById('average');
       averageContainer.innerHTML = '';
-      const renderedAverage = renderAverage(app.state.average);
+      const renderedAverage = renderAverage(state.average);
       averageContainer.appendChild(renderedAverage);
       // log new view rendered from state
       logEntry.viewAverage = renderedAverage;

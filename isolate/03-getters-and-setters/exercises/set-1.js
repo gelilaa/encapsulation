@@ -9,6 +9,7 @@ const obj2 = {
   greeting: ``,
   set greetingName(newName) {
     // write me!
+    this.greeting = `hi, I'm ${newName}!`
   }
 };
 

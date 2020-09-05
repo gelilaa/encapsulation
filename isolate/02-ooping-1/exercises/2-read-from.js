@@ -2,8 +2,9 @@
 
 const obj = {
   word: '',
-  getWord: function (a) { 
-    return a.subStr(this.word);
+  getWord: function (a) {
+    a = 'the word is '
+    return a + this.word;
   },
   concat: function (secondHalf) {
     return this.word + secondHalf;
