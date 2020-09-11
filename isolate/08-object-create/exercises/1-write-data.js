@@ -25,7 +25,7 @@ const incrementorA = Object.create(incrementorPrototype);
 incrementorA.id = 'A';
 incrementorA.state = {
   value: 0,
-  _: _
+  stepSize: 1,
 };
 
 incrementorA.increment(); // value --> 1

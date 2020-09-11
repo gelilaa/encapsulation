@@ -34,6 +34,7 @@
         this.state.b = (this.state.b + 30) % 255;
       },
       handleClick: function (element) {
+        debugger;
         this.cycle();
         element.style.backgroundColor = `rgb(${this.state.r},${this.state.g},${this.state.b})`;
       },

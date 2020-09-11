@@ -40,13 +40,45 @@
 
   <script id='handler'>
     const createTableHandler = (event) => {
+      debugger;
       currentCyclers = [];
 
       const x = Number(event.target.form.x.value);
       const y = Number(event.target.form.y.value);
 
       // --- above here works
-
+      const newTable = document.createElement('table');
+        for (var i = 0; i < x; i++) {
+        var tr = document.createElement('tr');
+        newTable.appendChild(tr);
+        for (var j = 0; j < y; j++) {
+          
+            var ab = Object.create(colorCyclerPrototype);
+            ab.state ={
+              r: 0,
+              g: 0,
+              b: 0
+            },
+            ab.cycle= function() {
+              this.state.r = (this.state.r + 10) % 255;
+              this.state.g = (this.state.g + 20) % 255;
+              this.state.b = (this.state.b + 30) % 255;
+            };
+             
+            currentCyclers.push(ab.state);
+            var td = document.createElement('td');
+             tr.appendChild(td);
+              const container = document.createElement('div');
+              container.style.backgroundColor= `rgb(${ab.state.r},${ab.state.g},${ab.state.b})`;
+              container.addEventListener('click',function handelClick() {
+              ab.cycle();
+              container.style.backgroundColor = `rgb(${ab.state.r},${ab.state.g},${ab.state.b})`;
+              })
+              container.className = 'color-cycler';
+              td.appendChild(container);
+               }
+        }
+        
       // create a new table with dimensions x, y
       //  create a new cycler for each table cell
       //  render the new cycler and append it to the cell
@@ -58,6 +90,7 @@
       const rootEl = document.getElementById('root');
       rootEl.innerHTML = '';
       rootEl.appendChild(newTable);
+         
     };
   </script>
 

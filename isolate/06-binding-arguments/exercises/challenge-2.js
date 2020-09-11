@@ -12,7 +12,9 @@ function addThem(boundArg, freeArg) {
 }
 
 // do write code here
-
+let bound1 = addThem.bind(obj1,'_');
+let bound2 = addThem.bind(obj2, 1);
+let bound3 = addThem.bind(obj3,'');
 
 
 // don't change this code

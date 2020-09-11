@@ -9,7 +9,9 @@ const objC = { thing: false };
 
 // do write code here
 
-const writeMe = function () { }
+const writeMe = function () {
+    
+ }
 
 const boundA = _;
 const boundB = _;
