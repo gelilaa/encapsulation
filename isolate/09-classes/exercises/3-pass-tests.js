@@ -4,6 +4,10 @@
 //  hint: state should be an object of key/value pairs
 
 class EntriesManager {
+  entries ={}
+  write = {}
+  read = {}
+  remove ={}
 
 };
 

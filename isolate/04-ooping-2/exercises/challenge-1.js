@@ -4,9 +4,27 @@ const obj = {
   state: {
     biggest: -Infinity,
     smallest: Infinity,
-    all: []
+    all: [],
   },
-  addNumber: function (newValue) { }
+  get biggest() {
+    return this.state.biggest;
+  },
+  get smallest() {
+    return this.state.smallest;
+  },
+  get all(){
+    return [...this.state.all];
+  },
+
+  addNumber: function (newValue) {
+    this.state.all.push(newValue);
+    if (newValue > this.state.biggest) {
+      newValue = this.state.biggest;
+    }
+    if (newValue < this.state.smallest) {
+      newValue = this.state.smallest;
+    }
+  },
 };
 
 const returned1 = obj.addNumber(0);

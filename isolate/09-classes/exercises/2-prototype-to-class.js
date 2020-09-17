@@ -5,7 +5,12 @@ const MaxMinPrototype = {
     return this.state.max - this.state.min;
   },
   addNumber(newNum) {
-    // ... code ...
+    if (newNum > this.state.max) {
+      this.state.max = newNum;
+      
+    }if (newNum< this.state.min){
+      this.state.min = newNum;
+    }
   }
 };
 
@@ -13,7 +18,22 @@ const MaxMinPrototype = {
 //  hint: state ---> { min: 'number', max: 'number' }
 
 class MaxMin {
-
+  state = {};
+  constructor(min = Infinity, max = -Infinity) {
+    this.state.min = min;
+    this.state.max = max;
+  }
+  get spread() {
+    return this.state.max - this.state.min;
+  }
+  addNumber(newNum) {
+    if (newNum > this.state.max) {
+      this.state.max = newNum;
+    }
+    if (newNum < this.state.min) {
+      this.state.min = newNum;
+    }
+  }
 };
 
 // these two lines are correct! don't change them

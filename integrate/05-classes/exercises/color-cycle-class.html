@@ -34,18 +34,57 @@
 
   <script id='ColorCycler-class'>
     class ColorCycler {
+      state ={
+        r: 0,
+        g: 0,
+        b: 0
+      }
+      cycle(){
+          this.state.r = (this.state.r + 10) % 255;
+          this.state.g = (this.state.g + 20) % 255;
+          this.state.b = (this.state.b + 30) % 255;
+        }
+        handleClick(element) {
+            this.cycle();
+            element.style.backgroundColor = `rgb(${this.state.r},${this.state.g},${this.state.b})`;
+          }
+          render () {
+            debugger;
+            const container = document.createElement('div');
+            container.addEventListener('click', this.handleClick.bind(this, container));
+            container.className = 'color-cycler';
+            return container;
+          }
+      
 
     };
   </script>
 
   <script id='handler'>
     const createTableHandler = (event) => {
+      debugger;
       currentCyclers = [];
 
       const x = Number(event.target.form.x.value);
       const y = Number(event.target.form.y.value);
 
+      const newTable = document.createElement('table');
+      for (var i = 0; i < x; i++) {
+        var tr = document.createElement('tr');
+        newTable.appendChild(tr);
+        for (var j = 0; j < y; j++) {
+          var td = document.createElement('td');
+          tr.appendChild(td); 
+          var ab = new ColorCycler(newTable);
+          var b = ab.render();
+          td.appendChild(b);
+          currentCyclers.push(ab);
+        }
+        }
+        
       // --- above here works
+
+
 
       // create a new table with dimensions x, y
       //  create a new cycler for each table cell
